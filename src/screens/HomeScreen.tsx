@@ -33,7 +33,7 @@ export default function HomeScreen({ navigation }: Props) {
     <SafeAreaView style={styles.safe} edges={['top']}>
       <ScrollView contentContainerStyle={styles.scroll}>
         <Header />
-        <ProfileImage source={perfis[0].foto} />
+        <ProfileImage source={require('../../assets/LogoDev_app.png')} isHome={true} />
 
         <View style={styles.content}>
           <Text style={styles.title}>{textoHome.tituloLinha1}</Text>
@@ -51,23 +51,14 @@ export default function HomeScreen({ navigation }: Props) {
           ))}
           <PrimaryButton
             title={textos.botaoContato}
-            onPress={() => Alert.alert('Entre em contato')}
+            onPress={() => Alert.alert(
+              'Entre em contato',
+              `E-mail: devcom@email.com\nTelefone: (11) 99999-9999.\nAlameda dos Canários, nº. 11, Itu/SP - Brasil.`
+            )}
           />
 
           <Text style={styles.sectionTitle}>{textos.tituloRedesHome}</Text>
 
-          {/* Switch original do PDF (Alert) */}
-          <View style={styles.switchRow}>
-            <Text style={styles.switchLabel}>{textos.switchVisualizacao}</Text>
-            <Switch
-              value={ligado}
-              onValueChange={alternar}
-              trackColor={{ false: colors.switchOff, true: colors.primary }}
-              thumbColor="#FFFFFF"
-            />
-          </View>
-
-          {/* Novo switch: alterna o tema */}
           <View style={styles.switchRow}>
             <Text style={styles.switchLabel}>{textos.switchTema}</Text>
             <Switch
@@ -77,14 +68,20 @@ export default function HomeScreen({ navigation }: Props) {
               thumbColor="#FFFFFF"
             />
           </View>
-
           <View style={styles.chips}>
             {perfis.map((p) => {
               const ativo = p.id === selecionado;
               return (
                 <Pressable
                   key={p.id}
-                  onPress={() => setSelecionado(p.id)}
+                  onPress={() => {
+                    setSelecionado(p.id);
+                    if (p.id === 'aluno1') {
+                      Alert.alert('Alerta do Diego', 'Esta é a mensagem exclusiva para o Diego Leão!');
+                    } else if (p.id === 'aluno2') {
+                      Alert.alert('Alerta da Laura', 'Esta é a mensagem específica para a Laura Marques!');
+                    }
+                  }}
                   style={[styles.chip, ativo && styles.chipActive]}
                 >
                   <Text style={[styles.chipText, ativo && styles.chipTextActive]}>
@@ -94,7 +91,6 @@ export default function HomeScreen({ navigation }: Props) {
               );
             })}
           </View>
-
           <SocialLinks redes={perfil.redes} />
         </View>
         <Footer />

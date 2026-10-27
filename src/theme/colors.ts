@@ -28,7 +28,7 @@ export const temaVermelho: Colors = {
 // Tema 2: amarelo e preto
 export const temaAmarelo: Colors = {
   background: '#000000',
-  primary: '#FFD60A',
+  primary: '#FFD60A',  
   text: '#FFFFFF',
   textMuted: '#D0D0D0',
   buttonText: '#000000',

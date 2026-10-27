@@ -33,12 +33,12 @@ export const perfis: Perfil[] = [
     {
         id: 'aluno2',
         nome: 'Laura Marques',
-        foto: { uri: 'https://i.pravatar.cc/500?img=47' },
-        bio: ['Parágrafo 1...', 'Parágrafo 2...', 'Parágrafo 3...'],
-        email: 'aluno1@email.com',
+        foto: require('../../assets/Laura.jpeg'),
+        bio: ['Oi! Eu sou a Laura, estudante de Análise e Desenvolvimento de Sistemas da FATEC Itu.'],
+        email: 'laura.marques.dev@gmail.com',
         redes: {
-            github: 'https://github.com/aluno1',
-            linkedin: 'https://www.linkedin.com/in/aluno1',
+            github:  'https://github.com/LauraMarDev',
+            linkedin: 'https://www.linkedin.com/in/laura-marques-51748b293',
             //instagram: 'https://www.instagram.com/aluno1',
             //twitch: 'https://www.twitch.tv/aluno1',
         },
@@ -52,5 +52,5 @@ export const textoHome = {
     tituloLinha1: 'Eleve seu negócio digital a outro nível',
     tituloDestaque: 'com um Front-end de qualidade!',
     descricao:
-        'Para proteger o mundo da devastação! Para unir as pessoas de nossa nação Para denunciar os males da verdade e do amor. Equipe Rocket decolando na velocidade da luz!',
+        'Para proteger o mundo da devastação! Para unir as pessoas de nossa nação. Para denunciar os males da verdade e do amor. Equipe Rocket decolando na velocidade da luz!',
 };
